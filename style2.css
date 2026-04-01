@@ -1,0 +1,117 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.lista {
+    font-family: "Manrope", sans-serif;
+   
+}
+
+.lista li:first-child{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.lista li:last-child {
+    color: red;
+    text-decoration: underline;
+}
+
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+body {
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.75em;
+    padding: 10px;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+main {
+    margin-top: 40px;
+}
+
+header {
+    background-color: skyblue;
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: 15px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/*table tr:nth-child(odd) {*/
+/*table tr:nth-child(even) {*/
+/*table tr:nth-child(3n) {*/
+table tr:nth-child(3n+1) {
+    background-color: lightgray;
+}
+
+table tr:hover {
+    background-color: grey;
+}
+
+.botao {
+    background-color: cornflowerblue;
+    padding: 5px 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 0.5px solid gray
+}
+
+.botao:hover {
+    background-color: teal;
+    border-color: 0.5px solid white
+}
+
+.botao:active {
+    border-top: 2px solid black;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+nav{
+    background-color: aquamarine;
+}
+
+.pos_relative{
+    border: 1px solid black;
+    position: relative;
+}
+
+.div_pai{
+    border: 1px solid black;
+    background-color: blue;
+    width: 600px;
+    height: 400px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+}
+.div_filho{
+    border: 1px solid black;
+    background-color: yellow;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+}
