@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo JavaScript</title>
+    <script src="js/funcoes.js"></script>
+</head>
+
+<body>
+   
+    <main>
+        <button onclick="alert('Fui skibidado')">Clique aqui</button>
+        <button onclick="minhaFuncao2('skibidi')">Clique aqui</button>
+        <button id="btn-click">Clique aqui</button>
+    </main>
+     <script>
+        let x = 5;
+        y = 3;
+        vBooleano = true;
+        vObjeto = { "nome": "Vitor", "sobrenome": "NiggaAndré", "salario": 0, isBlack: true, jobs: 0, isRetarded: true, isDumbAssNigga: true };
+        vData = new Date();
+        vetor1 = [1, 2, 3]
+        vetor2 = [4, "vitor", 3.5, false]
+
+        z = x + y;
+        console.log('z = ' + z)
+        z = x - y;
+        console.log('z = ' + z)
+        z = x * y;
+        console.log('z = ' + z)
+        z = x / y;
+        console.log('z = ' + z)
+        z = x % y;
+        console.log('z = ' + z)
+        z = x ** y;
+        console.log('z = ' + z)
+        x++; console.log(x);
+        x--; console.log(x);
+        console.log(x += y);
+        console.log(x -= y);
+
+        //Operadores booleanos / Operadores de comparação
+        if (x > y) {
+            console.log("x é maior")
+        } else if (x < y) {
+            console.log("y é maior")
+        } else {
+            console.log("x e y são iguais")
+        }
+        z = '5'
+        if (x == z) {
+            console.log("x é igual a z!")
+        }
+        if (x === z) {
+            console.log('x e z são iguais')
+        } else {
+            console.log('x e z são diferentes')
+        }
+
+        if ((x > y) || (vData.getFullYear() == 2026)) {
+            console.log("Qualquer uma das expressões é verdadeira")
+        }
+        if ((x > y) && (vData.getFullYear() == 2026)) {
+            console.log("Ambas as expressoes são verdadeiras")
+        }
+        if (!(x > y)) {
+            console.log("A negação resulta em true")
+        }
+
+        switch (x) {
+            case 1:
+                console.log(1)
+                break;
+
+            case 2:
+                console.log(1)
+                break;
+
+            case 3:
+                console.log(1)
+                break;
+
+            default:
+                break;
+        }
+
+        for (i = 0; i < vetor1.length ; i++) {
+            console.log(vetor1[i])
+        }
+        i = 0;
+        while(i <vetor1.length){
+            console.log(vetor1[i])
+            i++;
+        }
+
+        function minhaFuncao(){
+            console.log("foi chamado o minha funcao")
+        }
+        minhaFuncao();
+        minhaFuncao2("Teste");
+        console.log(minhaFuncao3(x))
+        console.log(minhaFuncao4())
+        console.log(minhaFuncao5())
+
+
+        vBotao = document.getElementById('btn-click')
+        vBotao.addEventListener('click', () =>minhaFuncao2("Clicooooooooooouuu"));
+    </script>
+</body>
+
+</html>
