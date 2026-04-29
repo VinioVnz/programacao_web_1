@@ -15,3 +15,14 @@ function minhaFuncao5(){
     var x = 100;
     var vInterna = "Brasil"
 }
+
+function escreveMensagem(mensagem){
+    var div = document.getElementById('mensagem');
+    div.innerHTML = mensagem;
+}
+
+function alteraMensagem(){
+    var vInput = document.getElementById('textoMensagem');
+    var vMensagem = document.getElementById('mensagem');
+    vMensagem.innerHTML = vInput.value;
+}

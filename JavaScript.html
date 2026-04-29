@@ -7,15 +7,96 @@
     <title>Exemplo JavaScript</title>
     <script src="js/funcoes.js"></script>
 </head>
+<style>
+    .classe1 {
+        background-color: skyblue;
+        text-align: center;
+    }
 
+    .classe2{
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
 <body>
-   
+
     <main>
         <button onclick="alert('Fui skibidado')">Clique aqui</button>
         <button onclick="minhaFuncao2('skibidi')">Clique aqui</button>
         <button id="btn-click">Clique aqui</button>
+
+        <div id="mensagem"></div>
+        <p>
+            <button id="botao2"> Escreve mensagem </button>
+            <br>
+            <br>
+
+        <input type="text" id="textoMensagem">
+        <button id="alteraMensagem">Altera mensagem</button>
+        </p>
+        <p>
+            <div id="div1">Texto da div</div>
+            <button onclick="altCSS1()">Altera estilo 1</button>
+        </p>
+        <p>
+            <div id="div1">Texto da div1</div>
+            <button onclick="altCSS1()">Altere estilo1</button>
+            <button onclick="classe1()">Altere classe1</button>
+            <button onclick="classe2()">Altere classe2</button>
+        </p>
+
+        <p>
+            <h4></h4>
+            <button onclick="localStorage.setItem('login','vinbornhofen')">Insere localStorage</button>
+            <button onclick="sessionStorage.setItem('login2','vinbornhofen2')">Insere sessionStorage</button>
+            <button onclick="alert(localStorage.getItem('login'))">Mostra localstorage</button>
+        </p>
+
+        <p>
+            <input type="text" id="itemLista">
+            <button onclick="inserirInicio()">Inserir item inicio</button>
+            <button onclick="inserirItem()">Inserir item final</button>
+            <ul id="lista"></ul>
+        </p>
     </main>
-     <script>
+    <script>
+        function inserirInicio(){
+            var vLista = document.getElementById('lista');
+            var vItemLista = document.getElementById('itemLista');
+            var vElemento = document.createElement('li')
+
+            vElemento.innerHTML = vItemLista.value;
+            vLista.insertBefore(vElemento, vLista.firstChild);
+        }
+
+        function inserirItem(){
+            var vLista = document.getElementById('lista')
+            var vItemLista = document.getElementById('itemLista')
+            var vElemento = document.createElement('li')
+
+            vElemento.innerHTML = vItemLista.value;
+            vLista.appendChild(vElemento)
+
+
+        }
+
+        function classe1(){
+            var vElemento = document.getElementById('div1')
+            vElemento.classList.add('classe1');
+        }
+
+        function classe2(){
+            var vEleento = document.getElementById('div1');
+            vEleento.classList.add('classe2')
+        }
+
+        function altCSS1(){
+            var vElemento = document.getElementById('div1');
+            vElemento.style.backgroundColor = 'yelow'
+            vElemento.style.fontSize = '1.25em';
+        }
+
+
         let x = 5;
         y = 3;
         vBooleano = true;
@@ -86,16 +167,16 @@
                 break;
         }
 
-        for (i = 0; i < vetor1.length ; i++) {
+        for (i = 0; i < vetor1.length; i++) {
             console.log(vetor1[i])
         }
         i = 0;
-        while(i <vetor1.length){
+        while (i < vetor1.length) {
             console.log(vetor1[i])
             i++;
         }
 
-        function minhaFuncao(){
+        function minhaFuncao() {
             console.log("foi chamado o minha funcao")
         }
         minhaFuncao();
@@ -106,7 +187,17 @@
 
 
         vBotao = document.getElementById('btn-click')
-        vBotao.addEventListener('click', () =>minhaFuncao2("Clicooooooooooouuu"));
+        vBotao.addEventListener('click', () => minhaFuncao2("Clicooooooooooouuu"));
+
+        botao2 = document.getElementById('botao2').addEventListener(
+            'click',
+            () => escreveMensagem('Escreve mensagem!')
+        );
+
+        document.getElementById('alteraMensagem').addEventListener(
+            'click',
+            alteraMensagem
+        )
     </script>
 </body>
 
