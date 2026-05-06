@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS avançado</title>
+    <script src="./js/classes.js"></script>
+</head>
+
+<body>
+    <div id="conteudo">Conteudo</div>
+    <script>
+        var vetor1 = [100, 200, 300, 400]
+        /*        var v1 = vetor1[0]
+               var v2 = vetor1[1]
+               var v3 = vetor1[2]
+               var v4 = vetor1[3] */
+
+        var [v1, v2, v3, v4] = vetor1;
+        var [v5, , , v6] = vetor1;
+
+        function aritmetica(p1, p2) {
+            return [(p1 + p2), (p1 - p2), (p1 * p2), (p1 / p2)];
+        }
+
+        var [vSoma, vSub, vMul, vDiv] = aritmetica(6, 3);
+
+        var professor = new Professor('Marcos', 53, 'DSC')
+
+        //var {nome, departamento, idade} = professor;
+
+        var { departamento } = professor;
+
+
+        //spread
+
+        var vetor2 = [400, 500, 600, 700];
+        var vetor3 = [...vetor1, ...vetor2];
+
+        var aluno = new Aluno("Vinicius", 19, "BCC")
+        //professor sobrescreve
+        var vObjeto = {...aluno, ...professor}
+
+        var [v10 , v11, ...vetor4] = vetor3;
+
+
+        function dataHora() {
+            document.getElementById('conteudo').innerHTML = new Date();
+        }
+
+        //document.getElementById('conteudo').innerHTML = dataHora();
+        setInterval(dataHora,1000)
+    </script>
+</body>
+
+</html>

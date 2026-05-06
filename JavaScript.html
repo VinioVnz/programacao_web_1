@@ -13,11 +13,19 @@
         text-align: center;
     }
 
-    .classe2{
+    .classe2 {
         font-weight: bold;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+
+    table,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+        border-collapse: collapse;
+    }
 </style>
+
 <body>
 
     <main>
@@ -31,36 +39,66 @@
             <br>
             <br>
 
-        <input type="text" id="textoMensagem">
-        <button id="alteraMensagem">Altera mensagem</button>
+            <input type="text" id="textoMensagem">
+            <button id="alteraMensagem">Altera mensagem</button>
         </p>
         <p>
-            <div id="div1">Texto da div</div>
-            <button onclick="altCSS1()">Altera estilo 1</button>
+        <div id="div1">Texto da div</div>
+        <button onclick="altCSS1()">Altera estilo 1</button>
         </p>
         <p>
-            <div id="div1">Texto da div1</div>
-            <button onclick="altCSS1()">Altere estilo1</button>
-            <button onclick="classe1()">Altere classe1</button>
-            <button onclick="classe2()">Altere classe2</button>
+        <div id="div1">Texto da div1</div>
+        <button onclick="altCSS1()">Altere estilo1</button>
+        <button onclick="classe1()">Altere classe1</button>
+        <button onclick="classe2()">Altere classe2</button>
         </p>
 
         <p>
-            <h4></h4>
-            <button onclick="localStorage.setItem('login','vinbornhofen')">Insere localStorage</button>
-            <button onclick="sessionStorage.setItem('login2','vinbornhofen2')">Insere sessionStorage</button>
-            <button onclick="alert(localStorage.getItem('login'))">Mostra localstorage</button>
+        <h4></h4>
+        <button onclick="localStorage.setItem('login','vinbornhofen')">Insere localStorage</button>
+        <button onclick="sessionStorage.setItem('login2','vinbornhofen2')">Insere sessionStorage</button>
+        <button onclick="alert(localStorage.getItem('login'))">Mostra localstorage</button>
         </p>
 
         <p>
             <input type="text" id="itemLista">
             <button onclick="inserirInicio()">Inserir item inicio</button>
             <button onclick="inserirItem()">Inserir item final</button>
-            <ul id="lista"></ul>
+        <ul id="lista"></ul>
+        </p>
+
+        <p>
+        <table id="tabela">
+            <tr>
+                <td>Col 1</td>
+                <td> Col 2</td>
+                <td>Col 3</td>
+            </tr>
+        </table>
+        <button onclick="insLinha()">Insere linha</button>
+        <button onclick="delLinha()">Delete linha</button>
         </p>
     </main>
     <script>
-        function inserirInicio(){
+        function delLinha() { 
+            document.getElementById("tabela").deleteRow(-1)
+        }
+
+        function insLinha() {
+            var vTabela = document.getElementById("tabela");
+
+            var vLinha = vTabela.insertRow();
+
+            var vCel1 = vLinha.insertCell();
+            vCel1.innerHTML = 'Col 1-Novo';
+
+            var vCel2 = vLinha.insertCell();
+            vCel2.innerHTML = 'Col 2-Novo';
+
+            var vCel3 = vLinha.insertCell();
+            vCel3.innerHTML = 'Col 3-Novo';
+        }
+        function inserirInicio() {
             var vLista = document.getElementById('lista');
             var vItemLista = document.getElementById('itemLista');
             var vElemento = document.createElement('li')
@@ -69,7 +107,7 @@
             vLista.insertBefore(vElemento, vLista.firstChild);
         }
 
-        function inserirItem(){
+        function inserirItem() {
             var vLista = document.getElementById('lista')
             var vItemLista = document.getElementById('itemLista')
             var vElemento = document.createElement('li')
@@ -80,17 +118,17 @@
 
         }
 
-        function classe1(){
+        function classe1() {
             var vElemento = document.getElementById('div1')
             vElemento.classList.add('classe1');
         }
 
-        function classe2(){
+        function classe2() {
             var vEleento = document.getElementById('div1');
             vEleento.classList.add('classe2')
         }
 
-        function altCSS1(){
+        function altCSS1() {
             var vElemento = document.getElementById('div1');
             vElemento.style.backgroundColor = 'yelow'
             vElemento.style.fontSize = '1.25em';
