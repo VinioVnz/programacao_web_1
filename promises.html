@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <script>
+        function lancarDado() {
+            return (Math.floor(Math.random() * 6) + 1);
+        }
+
+        function verPromessa(resolveu, rejeitou) {
+            var dado = lancarDado();
+            if (dado == 6) {
+                resolveu("Deu 6, parabéns!");
+            } else {
+                rejeitou("Deu " + dado + ", tente novamente!");
+            }
+        }
+
+        var promessa = new Promise(verPromessa);
+
+        function deuCerto(mensagem) {
+            console.log("Deu certo: " + mensagem);
+        }
+
+        function deuErrado(mensagem) {
+            console.log("Deu errado: " + mensagem);
+        }
+
+        promessa
+            .then(deuCerto)
+            .catch(deuErrado);
+
+
+
+        //usando arrow function
+        var promessa2 = new Promise(
+            (resolveu, rejeitou) => {
+                var dado = lancarDado();
+                if (dado == 6) {
+                    resolveu(dado);
+                } else {
+                    rejeitou(dado);
+                }
+            }
+        )
+
+        promessa2.then((valor) => console.log("Deu certo: " + valor))
+            .catch((erro) => console.log("Deu errado: " + erro))
+
+        //async
+
+        function simulaAsync(valor, espera) {
+            console.log("Iniciando operação: " + valor);
+            return new Promise((resolveu) => setTimeout(() => resolveu(valor), espera));
+        }
+        async function chamaAsync(){
+            console.log("Iniciando...");
+
+            var result1 = await simulaAsync("Operação 1", 1000);
+            console.log("Result1: "+result1);
+
+            var result2 = await simulaAsync("Operação 2", 2000);
+            console.log("Result2: "+result2);
+
+            var result3 = await simulaAsync("Operação 3", 3000);
+            console.log("Result3: "+result3);
+        }
+
+        async function chamaAsync2(){
+            return await simulaAsync("Operação 4", 1500);
+        }
+
+
+        console.log("Chama função inicio");
+        chamaAsync();
+
+        console.log("Chama função 2 inicio");
+        //console.log(chamaAsync2());
+        chamaAsync2().then((result) => console.log("Result4: "+result));
+        chamaAsync2();
+    </script>
+</body>
+<script type="module">
+    import { Professor_modulo, olaMundo } from "./js/modulo1.js";
+    import { olaMundo2, Aluno } from "./js/modulo2.js";
+    import * as modulo1 from "./js/modulo1.js";
+    console.log(Professor_modulo.nome);
+    olaMundo();
+
+    modulo1.olaMundo();
+
+    console.log(Aluno.nome);
+    olaMundo2();
+</script>
+</html>
